@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-module.exports = function(){
+module.exports = function () {
     const schema = mongoose.Schema({
         modelo: {
             type: String,
@@ -10,45 +10,49 @@ module.exports = function(){
             type: String,
             require: true
         },
-        ano_fabricacao:{
+        ano_fabricacao: {
             type: Number,
             require: true
         },
-        ano_modelo:{
+        ano_modelo: {
             type: Number,
             require: true
         },
-        cor:{
+        cor: {
             type: String,
             require: true
         },
-        combustivel:{
+        combustivel: {
             type: String,
             require: true
         },
-        tipo:{
+        tipo: {
             type: String,
-            require:true
+            require: true
         },
-        placa:{
+        placa: {
             type: String,
             require: true,
-            index:{
-                unique:true
+            index: {
+                unique: true
             }
         },
-        valor_compra:{
+        importado: {
+            type: Boolean,
+            require: true
+        },
+        valor_compra: {
             type: Number,
             require: true
         },
-        data_compra:{
-            type: Date, 
-            require:true
+        data_compra: {
+            type: Date,
+            require: true
         },
-        valor_venda:{
-            type:Number
+        valor_venda: {
+            type: Number
         },
-        data_venda:{
+        data_venda: {
             type: Date
         }
     });
