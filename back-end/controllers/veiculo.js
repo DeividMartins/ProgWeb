@@ -61,7 +61,7 @@ controller.obterUm = function (req, res) {
    );
 }
 
-controller.atualizar = function(req, res){
+controller.atualizar = function (req, res) {
    // Capturar  o id de dentro
    const id = req.body._id;
 
@@ -69,20 +69,43 @@ controller.atualizar = function(req, res){
    // e substitui seu conteudo por req.body
    Veiculo.findByIdAndUpdate(id, req.body).exec().then(
       //Callback do bem
-      function(veiculo){
-         if(veiculo){
+      function (veiculo) {
+         if (veiculo) {
             //Encontrou e atualizou
-            res.sendStatus(204),end();
-         }else{
+            res.sendStatus(204), end();
+         } else {
             //Não encontrou(e não atualizou)
             res.sendStatus(404).end();
          }
       },
       //callback do mall
-      function(erro){
+      function (erro) {
          console.error(erro);
          res.sendStatus(500).end();
       }
    );
+}
+
+controller.excluir = function (req, res) { 
+   //Capturamos o id  a partir do url da aquisição
+   const id = req.params.id;
+
+   Veiculo.findOneAndDelete({_id: id}).exec().then(
+      //callback do bem
+      function(veiculo){
+         if (veiculo){
+         //Encontrou e excluiu
+         res.sendStatus(204).end();
+         }else{
+            //Não encontrou( e ão excluiu)
+            res.sendStatus(404).end();
+         }
+      },
+      //Callback do mal
+      function(erro){
+         console.error(erro);
+         res.sendStatus(500).end();
+      }
+   )
 }
 module.exports = controller;
