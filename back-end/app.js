@@ -27,4 +27,10 @@ app.use('/teste', teste);
 const veiculo = require('./routes/veiculo');
 app.use('/veiculo', veiculo);
 
+const usuario = require('./routes/usuario');
+app.use('/usuario', usuario);
+
+const conta = require('./routes/conta');
+app.use('/conta', conta);
+
 module.exports = app;
