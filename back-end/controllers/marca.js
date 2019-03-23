@@ -1,4 +1,4 @@
-const Conta = require('../models/Conta')(/* construtor */);
+const Marca = require('../models/Marca')(/* construtor */);
 
 const controller = {}; // Objeto vazio
 
@@ -8,7 +8,7 @@ const controller = {}; // Objeto vazio
 controller.novo = function (req, res) {
    // Os dados a serem gravados estão
    // dentro de req.body
-   Conta.create(req.body).then(
+   Marca.create(req.body).then(
       // Callback se der certo
       function () {
          //res.send(null); // Resposta sem conteúdo
@@ -25,12 +25,12 @@ controller.novo = function (req, res) {
 }
 
 controller.listar = function (req, res) {
-   Conta.find().exec().then(
+   Marca.find().exec().then(
       // callback do bem
-      function (contas) {
-         //todos os contas em um vetor
+      function (marcas) {
+         //todos os marcas em um vetor
          //retorna o vetor encontrado
-         res.json(contas).end();
+         res.json(marcas).end();
       },
       // callback do mal
       function (erro) {
@@ -43,13 +43,13 @@ controller.listar = function (req, res) {
 controller.obterUm = function (req, res) {
    const id = req.params.id;
 
-   Conta.findById(id).exec().then(
+   Marca.findById(id).exec().then(
       //cllback do bem
-      function (contas) {//Zero ou um conta
-         if (contas) {// conta encontrado
-            res.json(contas).end();
+      function (marca) {//Zero ou um marca
+         if (marca) {// marca encontrado
+            res.json(marca).end();
          }
-         else { // conta não encontrado
+         else { // marca não encontrado
             res.sendStatus(404).end();
          }
       },
@@ -67,10 +67,10 @@ controller.atualizar = function (req, res) {
 
    // Encontrar o objeto identificador pelo id
    // e substitui seu conteudo por req.body
-   Conta.findByIdAndUpdate(id, req.body).exec().then(
+   Marca.findByIdAndUpdate(id, req.body).exec().then(
       //Callback do bem
-      function (contas) {
-         if (contas) {
+      function (marca) {
+         if (marca) {
             //Encontrou e atualizou
             res.sendStatus(204), end();
          } else {
@@ -90,10 +90,10 @@ controller.excluir = function (req, res) {
    //Capturamos o id  a partir do url da aquisição
    const id = req.params.id;
 
-   Conta.findOneAndDelete({_id: id}).exec().then(
+   Marca.findOneAndDelete({_id: id}).exec().then(
       //callback do bem
-      function(contas){
-         if (contas){
+      function(marca){
+         if (marca){
          //Encontrou e excluiu
          res.sendStatus(204).end();
          }else{

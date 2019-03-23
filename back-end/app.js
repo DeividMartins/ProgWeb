@@ -33,4 +33,16 @@ app.use('/usuario', usuario);
 const conta = require('./routes/conta');
 app.use('/conta', conta);
 
+const tipo = require('./routes/tipo');
+app.use('/tipo', tipo);
+
+const marca = require('./routes/marca');
+app.use('/marca', marca);
+
+const cor = require('./routes/cor');
+app.use('/cor', cor);
+
+const contcombustivel = require('./routes/combustivel');
+app.use('/combustivel', contcombustivel);
+
 module.exports = app;

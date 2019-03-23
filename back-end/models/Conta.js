@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 module.exports = function () {
     const schema = mongoose.Schema({
-        nome: {
+        nomeAgencia: {
             type: String,
             require: true
         },
@@ -12,7 +12,10 @@ module.exports = function () {
         },
         conta: {
             type: String,
-            require: true
+            require: true,
+            index: {
+                unique: true
+            }
         },
         saldo: {
             type: Number,
@@ -23,6 +26,6 @@ module.exports = function () {
             require: true
         }
     });
-    return mongoose.model('Conta', schema, 'conta');
+    return mongoose.model('Conta', schema, 'contas');
 
 }
