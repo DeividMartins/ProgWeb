@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 module.exports = function () {
     const schema = mongoose.Schema({
-        _id: Object,
+        
         nome: {
             type: String,
             require: true
@@ -16,7 +16,19 @@ module.exports = function () {
             type: mongoose.ObjectId,
             ref: "Tipo",
             require:true
+        },
+        combustivel:{
+            type: mongoose.ObjectId,
+            ref: "Combustivel",
+            require:true
+        },
+        cor:{
+            type: mongoose.ObjectId,
+            ref: "Cor",
+            require:true
         }
+
+
     });
     return mongoose.model('Modelo', schema, 'modelos');
 

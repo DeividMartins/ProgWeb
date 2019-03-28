@@ -42,7 +42,10 @@ app.use('/marca', marca);
 const cor = require('./routes/cor');
 app.use('/cor', cor);
 
-const contcombustivel = require('./routes/combustivel');
-app.use('/combustivel', contcombustivel);
+const combustivel = require('./routes/combustivel');
+app.use('/combustivel', combustivel);
+
+const modelo = require('./routes/modelo');
+app.use('/modelo', modelo);
 
 module.exports = app;

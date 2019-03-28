@@ -19,6 +19,6 @@ module.exports = function () {
         
         }
     });
-    return mongoose.model('Usuario', schema, 'usuario');
+    return mongoose.model('Usuario', schema, 'usuarios');
 
 }
